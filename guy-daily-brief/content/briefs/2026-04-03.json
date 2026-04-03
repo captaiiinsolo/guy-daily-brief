@@ -1,0 +1,63 @@
+{
+  "date": "2026-04-03",
+  "title": "Guy Daily Brief",
+  "summary": "A calm, high-signal roundup of the most important developments worth your attention.",
+  "sections": {
+    "us": [
+      {
+        "headline": "Sample US story",
+        "summary": "This is a placeholder summary for a major US development with practical significance.",
+        "whyItMatters": "It shows how the dashboard will present useful context without flooding you with noise.",
+        "source": {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/"
+        }
+      },
+      {
+        "headline": "Court and policy story placeholder",
+        "summary": "A second US item gives the layout room to breathe while showing how daily priorities will stack.",
+        "whyItMatters": "Legal and regulatory moves tend to matter longer than one-day outrage cycles.",
+        "source": {
+          "name": "AP",
+          "url": "https://apnews.com/"
+        }
+      }
+    ],
+    "world": [
+      {
+        "headline": "Sample world story",
+        "summary": "This is a placeholder summary for an important international development.",
+        "whyItMatters": "World news belongs here only when it has durable geopolitical, economic, or humanitarian impact.",
+        "source": {
+          "name": "BBC",
+          "url": "https://www.bbc.com/news"
+        }
+      }
+    ],
+    "tech": [
+      {
+        "headline": "Sample tech story",
+        "summary": "This is a placeholder for a meaningful tech, security, or developer ecosystem update.",
+        "whyItMatters": "The goal is useful technical signal, not gadget fluff or empty hype.",
+        "source": {
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com/"
+        }
+      },
+      {
+        "headline": "Security advisory placeholder",
+        "summary": "A second tech item demonstrates the card rhythm and source treatment.",
+        "whyItMatters": "Security and infrastructure stories usually deserve more attention than product launch noise.",
+        "source": {
+          "name": "CISA",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+        }
+      }
+    ]
+  },
+  "watchlist": [
+    "A developing policy update expected tomorrow",
+    "Additional details on a security advisory may emerge in the next 24 hours",
+    "Any major escalation in an ongoing world story worth rechecking tomorrow morning"
+  ]
+}
