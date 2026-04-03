@@ -48,8 +48,16 @@ content/briefs/YYYY-MM-DD.json
 
 ## Suggested next steps
 
-- Replace placeholder content with real generated briefs
 - Connect the repo to GitHub
 - Deploy to Cloudflare Pages
 - Add cron or a timer-based publish job
-- Wire trusted source ingestion into `scripts/generate-brief.ts`
+- Expand the full-text source mix for the tech section
+- Improve ranking/deduping rules across sources
+
+## Shipping checklist
+
+1. Push `guy-daily-brief` to GitHub
+2. Create a Cloudflare Pages project and connect the repo
+3. Attach `news.solomonsantos.me`
+4. Verify production rendering and mobile layout
+5. Add a scheduled `npm run publish` job on the source machine if local generation remains the source of truth

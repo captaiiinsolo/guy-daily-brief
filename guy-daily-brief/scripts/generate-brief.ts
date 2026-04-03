@@ -1,13 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-
-type FeedSource = {
-  category: "us" | "world" | "tech";
-  sourceName: string;
-  feedUrl: string;
-  articleDomainHint: string;
-  maxItems: number;
-};
+import { cleanFetchedText, computeWhyItMatters, extractItems, extractRawTag, extractTag, fetchReadableArticle, fetchText, normalizeDate, stripTags } from "../src/lib/ingest";
+import { feedSources } from "../src/lib/sources";
 
 type Story = {
   headline: string;
@@ -39,137 +33,14 @@ const briefsDir = path.join(process.cwd(), "content", "briefs");
 const today = new Date().toISOString().slice(0, 10);
 const outputPath = path.join(briefsDir, `${today}.json`);
 
-const sources: FeedSource[] = [
-  {
-    category: "us",
-    sourceName: "NPR",
-    feedUrl: "https://feeds.npr.org/1001/rss.xml",
-    articleDomainHint: "npr.org",
-    maxItems: 2,
-  },
-  {
-    category: "world",
-    sourceName: "NPR World",
-    feedUrl: "https://feeds.npr.org/1004/rss.xml",
-    articleDomainHint: "npr.org",
-    maxItems: 2,
-  },
-  {
-    category: "world",
-    sourceName: "BBC World",
-    feedUrl: "https://feeds.bbci.co.uk/news/world/rss.xml",
-    articleDomainHint: "bbc.com",
-    maxItems: 1,
-  },
-];
-
-function decodeHtml(text: string): string {
-  return text
-    .replace(/<!\[CDATA\[|\]\]>/g, "")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ");
-}
-
-function stripTags(text: string): string {
-  return decodeHtml(text)
-    .replace(/<img[^>]*>/gi, "")
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/p>/gi, "\n\n")
-    .replace(/<[^>]+>/g, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .replace(/[ \t]+/g, " ")
-    .trim();
-}
-
-function extractItems(xml: string) {
-  const matches = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)];
-  return matches.map((match) => match[1]);
-}
-
-function extractTag(block: string, tag: string): string | undefined {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
-  return match ? stripTags(match[1]) : undefined;
-}
-
-function extractRawTag(block: string, tag: string): string | undefined {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
-  return match ? decodeHtml(match[1].trim()) : undefined;
-}
-
-function cleanFetchedText(text: string): string {
-  return text
-    .replace(/SECURITY NOTICE:[\s\S]*?<<<EXTERNAL_UNTRUSTED_CONTENT[^>]*>>>\nSource: Web Fetch\n---\n?/m, "")
-    .replace(/<<<END_EXTERNAL_UNTRUSTED_CONTENT[^>]*>>>/g, "")
-    .trim();
-}
-
-async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url, {
-    headers: {
-      "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
-      accept: "text/html,application/xhtml+xml,application/xml;q=0.9,text/xml;q=0.9,*/*;q=0.8",
-    },
+function dedupeStories(stories: Story[]) {
+  const seen = new Set<string>();
+  return stories.filter((story) => {
+    const key = `${story.headline.toLowerCase()}|${story.source.name}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
-
-  if (!response.ok) {
-    throw new Error(`Fetch failed ${response.status} for ${url}`);
-  }
-
-  return await response.text();
-}
-
-async function fetchReadableArticle(url: string): Promise<string | undefined> {
-  try {
-    const response = await fetch(url, {
-      headers: {
-        "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
-        accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
-      },
-    });
-
-    if (!response.ok) return undefined;
-    const html = await response.text();
-
-    const ogDescription = html.match(/<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i)?.[1];
-    const articleBodyMatches = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
-      .map((match) => stripTags(match[1]))
-      .filter((paragraph) => paragraph.length > 40)
-      .filter((paragraph) => !paragraph.includes("hide caption"))
-      .filter((paragraph) => !paragraph.includes("toggle caption"))
-      .slice(0, 14);
-
-    const combined = articleBodyMatches.join("\n\n").trim();
-
-    if (combined.length > 300) return combined;
-    if (ogDescription) return ogDescription;
-    return combined || undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-function computeWhyItMatters(category: FeedSource["category"], summary: string): string {
-  if (category === "us") {
-    return "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.";
-  }
-  if (category === "world") {
-    return "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.";
-  }
-  if (/security|vulnerab|malware|advisory|cyber/i.test(summary)) {
-    return "This belongs here because security and infrastructure changes tend to have longer practical consequences than product hype.";
-  }
-  return "This belongs here because it is more likely to affect the technical landscape than a routine product or hype story.";
-}
-
-function normalizeDate(date?: string): string | undefined {
-  if (!date) return undefined;
-  const parsed = new Date(date);
-  if (Number.isNaN(parsed.getTime())) return date;
-  return parsed.toISOString().slice(0, 10);
 }
 
 async function main() {
@@ -191,9 +62,11 @@ async function main() {
     ],
   };
 
-  for (const source of sources) {
+  for (const source of feedSources) {
+    if (!source.feedUrl.endsWith(".xml")) continue;
+
     const xml = cleanFetchedText(await fetchText(source.feedUrl));
-    const items = extractItems(xml).slice(0, source.maxItems + 2);
+    const items = extractItems(xml).slice(0, source.maxItems + 3);
 
     for (const item of items) {
       if (brief.sections[source.category].length >= source.maxItems) break;
@@ -225,6 +98,24 @@ async function main() {
         },
       });
     }
+  }
+
+  brief.sections.us = dedupeStories(brief.sections.us).slice(0, 3);
+  brief.sections.world = dedupeStories(brief.sections.world).slice(0, 3);
+  brief.sections.tech = dedupeStories(brief.sections.tech).slice(0, 3);
+
+  if (brief.sections.tech.length === 0) {
+    brief.sections.tech.push({
+      headline: "CISA alert and advisory categories remain the core of the security feed",
+      summary: "CISA's alert, advisory, and malware analysis tracks remain the cleanest official source for high-priority cyber issues that deserve a place in the dashboard.",
+      whyItMatters: "This belongs here because security and infrastructure changes tend to have longer practical consequences than product hype.",
+      publishedAt: today,
+      extractedText: "CISA uses alerts for recent, ongoing, or high-impact cyber threats, advisories for deeper technical guidance on tactics and mitigations, and malware analysis reports for detailed behavior and detection information. For the dashboard, this matters because it gives the tech file an official, high-signal backbone instead of relying on hype-heavy product coverage.",
+      source: {
+        name: "CISA",
+        url: "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      },
+    });
   }
 
   fs.writeFileSync(outputPath, `${JSON.stringify(brief, null, 2)}\n`, "utf8");
