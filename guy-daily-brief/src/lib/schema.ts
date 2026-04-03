@@ -4,6 +4,10 @@ export const storySchema = z.object({
   headline: z.string(),
   summary: z.string(),
   whyItMatters: z.string(),
+  author: z.string().optional(),
+  publishedAt: z.string().optional(),
+  extractedText: z.string().optional(),
+  extractedMarkdown: z.string().optional(),
   source: z.object({
     name: z.string(),
     url: z.string().url(),

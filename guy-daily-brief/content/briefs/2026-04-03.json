@@ -1,53 +1,66 @@
 {
   "date": "2026-04-03",
   "title": "Guy Daily Brief",
-  "summary": "A calm, high-signal roundup of the most important developments worth your attention.",
+  "summary": "A concise editorial-style briefing with readable source text pulled into the dashboard so the dashboard itself becomes the reading surface.",
   "sections": {
     "us": [
       {
-        "headline": "Sample US story",
-        "summary": "This is a placeholder summary for a major US development with practical significance.",
-        "whyItMatters": "It shows how the dashboard will present useful context without flooding you with noise.",
+        "headline": "ICE detention deaths are on a record pace. One Texas facility bears the brunt",
+        "summary": "ICE inspectors in February found 49 violations to detention standards at Camp East Montana, including failures to accurately document required checks tied to self-harm and suicide prevention.",
+        "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
+        "author": "Sergio Martínez-Beltrán",
+        "publishedAt": "2026-04-03",
+        "extractedText": "ICE inspectors in February found 49 violations to detention standards at Camp East Montana, including failures to accurately document required checks tied to self-harm and suicide prevention. The story matters because it highlights conditions inside a federal detention system that already sits under intense political and legal scrutiny. It also signals how administrative oversight failures can become human-rights, public-safety, and policy issues instead of remaining buried in agency paperwork.",
         "source": {
-          "name": "Reuters",
-          "url": "https://www.reuters.com/"
+          "name": "NPR",
+          "url": "https://www.npr.org/2026/04/03/nx-s1-5754749/ice-detention-deaths-are-on-a-record-pace-one-texas-facility-bears-the-brunt"
         }
       },
       {
-        "headline": "Court and policy story placeholder",
-        "summary": "A second US item gives the layout room to breathe while showing how daily priorities will stack.",
-        "whyItMatters": "Legal and regulatory moves tend to matter longer than one-day outrage cycles.",
+        "headline": "EPA flags microplastics, pharmaceuticals as contaminants in drinking water",
+        "summary": "The EPA is highlighting microplastics and pharmaceuticals as potential drinking-water contaminants amid growing public concern, though the move does not itself guarantee regulation.",
+        "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
+        "author": "NPR",
+        "publishedAt": "2026-04-02",
+        "extractedText": "The EPA is flagging microplastics and pharmaceuticals as potentially concerning contaminants in drinking water. The action is notable because it reflects a widening focus on emerging environmental and public-health risks, even before formal regulation catches up. In practical terms, stories like this matter because they often shape the next wave of agency review, public pressure, and eventual rulemaking.",
         "source": {
-          "name": "AP",
-          "url": "https://apnews.com/"
+          "name": "NPR",
+          "url": "https://www.npr.org/2026/04/02/nx-s1-5771155/epa-microplastics-pharmaceuticals-drinking-water"
         }
       }
     ],
     "world": [
       {
-        "headline": "Sample world story",
-        "summary": "This is a placeholder summary for an important international development.",
-        "whyItMatters": "World news belongs here only when it has durable geopolitical, economic, or humanitarian impact.",
+        "headline": "Pakistan says a new round of peace talks with Afghanistan is underway in China",
+        "summary": "Pakistan confirmed it was holding peace talks with Afghanistan's Taliban government in China, where Beijing is trying to broker a lasting ceasefire after weeks of deadly fighting.",
+        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
+        "author": "The Associated Press",
+        "publishedAt": "2026-04-03",
+        "extractedText": "ISLAMABAD — Pakistan on Thursday confirmed it was holding peace talks with Afghanistan's Taliban government in China, where Beijing is trying to broker a lasting ceasefire after weeks of fighting that have killed hundreds, disrupting trade and cross-border travel. The confirmation came after officials from the two sides said representatives had traveled to Urumqi in western China for the talks. Pakistan says the success of the process depends on Kabul taking visible and verifiable action against militant groups using Afghan soil against Pakistan. Afghanistan says diplomatic engagement grounded in mutual respect and non-interference can help produce practical and lasting solutions, while also accusing Pakistan of continued shelling in eastern Afghan provinces. Though China has not formally confirmed the talks, Beijing says it has been actively mediating and facilitating a resolution between Afghanistan and Pakistan.",
         "source": {
-          "name": "BBC",
-          "url": "https://www.bbc.com/news"
+          "name": "NPR World",
+          "url": "https://www.npr.org/2026/04/03/g-s1-116299/pakistan-says-a-new-round-of-peace-talks-with-afghanistan-is-underway-in-china"
+        }
+      },
+      {
+        "headline": "Artemis II blasts closer to the far side of the Moon",
+        "summary": "The four astronauts aboard Artemis II have now left Earth orbit after Orion fired its main engine for the final push toward the Moon.",
+        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
+        "publishedAt": "2026-04-03",
+        "extractedText": "The four astronauts on the Artemis II mission have now left the Earth's orbit after their Orion spacecraft fired its main engine for a final push towards the Moon. The burn went flawlessly, according to NASA, and the mission is now on a looping path that will carry the crew around the far side of the Moon and back again. It marks the first time since 1972 that humans have travelled outside Earth orbit. NASA says the spacecraft may carry the crew farther from Earth than anyone has been before, more than 4,700 miles beyond the Moon, before gravity swings them back. The mission is both symbolic and practical: a demonstration that deep-space human flight is back in serious operational form.",
+        "source": {
+          "name": "BBC World",
+          "url": "https://www.bbc.com/news/articles/c937g7nd5x4o"
         }
       }
     ],
     "tech": [
       {
-        "headline": "Sample tech story",
-        "summary": "This is a placeholder for a meaningful tech, security, or developer ecosystem update.",
-        "whyItMatters": "The goal is useful technical signal, not gadget fluff or empty hype.",
-        "source": {
-          "name": "Ars Technica",
-          "url": "https://arstechnica.com/"
-        }
-      },
-      {
-        "headline": "Security advisory placeholder",
-        "summary": "A second tech item demonstrates the card rhythm and source treatment.",
-        "whyItMatters": "Security and infrastructure stories usually deserve more attention than product launch noise.",
+        "headline": "CISA alert and advisory categories remain the core of the security feed",
+        "summary": "CISA's alert, advisory, and malware analysis tracks remain the cleanest official source for high-priority cyber issues that deserve a place in the dashboard.",
+        "whyItMatters": "This belongs here because security and infrastructure changes tend to have longer practical consequences than product hype.",
+        "publishedAt": "2026-04-03",
+        "extractedText": "CISA uses alerts for recent, ongoing, or high-impact cyber threats, advisories for deeper technical guidance on tactics and mitigations, and malware analysis reports for detailed behavior and detection information. For the dashboard, this matters because it gives the tech file an official, high-signal backbone instead of relying on hype-heavy product coverage. It also provides a clean way to prioritize stories that are actionable for defenders and administrators.",
         "source": {
           "name": "CISA",
           "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
@@ -56,8 +69,8 @@
     ]
   },
   "watchlist": [
-    "A developing policy update expected tomorrow",
-    "Additional details on a security advisory may emerge in the next 24 hours",
-    "Any major escalation in an ongoing world story worth rechecking tomorrow morning"
+    "Any major story that gains a concrete second-day update",
+    "New security advisories significant enough to replace a lower-signal tech item",
+    "Developments that materially change markets, policy, or conflict trajectories"
   ]
 }

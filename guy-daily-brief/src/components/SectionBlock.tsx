@@ -30,15 +30,28 @@ export default function SectionBlock({ title, stories }: Props) {
               <span className="mr-1 font-semibold uppercase tracking-[0.16em] text-zinc-500">Why it matters</span>
               {story.whyItMatters}
             </p>
-            <a
-              href={story.source.url}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-[0.14em] text-sky-300 transition hover:text-sky-200"
-            >
-              {story.source.name}
-              <span aria-hidden="true">→</span>
-            </a>
+
+            {(story.author || story.publishedAt || story.source.url) && (
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
+                <span>{story.source.name}</span>
+                {story.author ? <span>{story.author}</span> : null}
+                {story.publishedAt ? <span>{story.publishedAt}</span> : null}
+              </div>
+            )}
+
+            {story.extractedText ? (
+              <div className="mt-5 space-y-4 rounded-2xl border border-white/8 bg-black/20 p-4 sm:p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-500">Full extracted text</p>
+                {story.extractedText
+                  .split(/\n\s*\n/)
+                  .filter(Boolean)
+                  .map((paragraph, idx) => (
+                    <p key={idx} className="text-[15px] leading-7 text-zinc-300 sm:text-base">
+                      {paragraph.replace(/\s+/g, " ").trim()}
+                    </p>
+                  ))}
+              </div>
+            ) : null}
           </article>
         ))}
       </div>
