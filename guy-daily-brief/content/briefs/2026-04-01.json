@@ -1,0 +1,44 @@
+{
+  "date": "2026-04-01",
+  "title": "Guy Daily Brief",
+  "summary": "An example archived brief showing how the dashboard reads as a calm, editorial timeline instead of a noisy feed.",
+  "sections": {
+    "us": [
+      {
+        "headline": "Budget, regulation, and courts shape the real US story mix",
+        "summary": "The most useful domestic briefing items are usually policy, legal, economic, or public-safety developments with staying power.",
+        "whyItMatters": "A concise briefing should favor structural change over social-media spectacle.",
+        "source": {
+          "name": "NPR",
+          "url": "https://www.npr.org/"
+        }
+      }
+    ],
+    "world": [
+      {
+        "headline": "International developments matter when they create downstream effects",
+        "summary": "Conflicts, sanctions, elections, and major trade disruptions belong in the brief because they produce real second-order consequences.",
+        "whyItMatters": "The world file should help you track what actually changes the map, the market, or the diplomatic picture.",
+        "source": {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/world/"
+        }
+      }
+    ],
+    "tech": [
+      {
+        "headline": "Platform and security changes age better than product launch hype",
+        "summary": "A useful tech section leans toward security, infrastructure, open source, AI policy, and developer ecosystem changes.",
+        "whyItMatters": "Those are the stories most likely to still matter next week.",
+        "source": {
+          "name": "CISA",
+          "url": "https://www.cisa.gov/"
+        }
+      }
+    ]
+  },
+  "watchlist": [
+    "Any follow-through on major infrastructure or cyber stories",
+    "Court timelines that could reshape policy implementation"
+  ]
+}

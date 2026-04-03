@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate": "tsx scripts/generate-brief.ts",
+    "validate": "tsx scripts/validate-briefs.ts",
+    "publish": "npm run generate && npm run validate"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -25,6 +28,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

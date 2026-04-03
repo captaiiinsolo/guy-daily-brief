@@ -1,0 +1,54 @@
+{
+  "date": "2026-04-02",
+  "title": "Guy Daily Brief",
+  "summary": "A concise editorial-style briefing focused on durable, high-signal developments across the US, world, and tech.",
+  "sections": {
+    "us": [
+      {
+        "headline": "Housing and lending rules remain a key pressure point",
+        "summary": "Federal housing and lending policy continues to shape affordability, borrowing costs, and compliance pressure across the market.",
+        "whyItMatters": "Bread-and-butter economic policy tends to matter more to daily life than the average outrage cycle.",
+        "source": {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/"
+        }
+      },
+      {
+        "headline": "Regulatory and court fights still set the medium-term backdrop",
+        "summary": "Major court and agency disputes remain among the most consequential US stories because they define what rules can actually stick.",
+        "whyItMatters": "Power struggles between agencies, courts, and lawmakers usually outlast the daily cable-news churn.",
+        "source": {
+          "name": "AP",
+          "url": "https://apnews.com/"
+        }
+      }
+    ],
+    "world": [
+      {
+        "headline": "Diplomacy, conflict, and energy markets remain tightly linked",
+        "summary": "Global security developments continue to spill into trade, fuel costs, and alliance politics in ways that directly affect the US.",
+        "whyItMatters": "The world section exists for stories with real geopolitical or economic aftershocks, not abstract international trivia.",
+        "source": {
+          "name": "BBC",
+          "url": "https://www.bbc.com/news"
+        }
+      }
+    ],
+    "tech": [
+      {
+        "headline": "Security and infrastructure deserve top billing in tech coverage",
+        "summary": "High-impact vulnerabilities and platform-level changes should lead the tech file over gadget drops or AI hype theater.",
+        "whyItMatters": "If a technical story changes risk, access, cost, or developer reality, it belongs in the brief.",
+        "source": {
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com/"
+        }
+      }
+    ]
+  },
+  "watchlist": [
+    "New details from any major court or policy decision",
+    "Material updates on global conflict or diplomatic negotiations",
+    "Security advisories that move from disclosure to active exploitation"
+  ]
+}

@@ -8,7 +8,8 @@ A mobile-first, monochrome daily news dashboard built with Next.js and Tailwind.
 - Archive page
 - Dated briefing pages
 - JSON-backed content files
-- Mobile-first dark UI
+- Editorial-style dark UI with stronger hierarchy
+- Generator + validator script stubs
 
 ## Run locally
 
@@ -25,6 +26,18 @@ Then open `http://localhost:3000`.
 npm run build
 ```
 
+## Validate content
+
+```bash
+npm run validate
+```
+
+## Generate a placeholder brief
+
+```bash
+npm run generate
+```
+
 ## Content
 
 Daily briefs live in:
@@ -33,10 +46,10 @@ Daily briefs live in:
 content/briefs/YYYY-MM-DD.json
 ```
 
-## Next steps
+## Suggested next steps
 
-- Add generation scripts
-- Add validation script
-- Connect to GitHub
+- Replace placeholder content with real generated briefs
+- Connect the repo to GitHub
 - Deploy to Cloudflare Pages
-- Wire cron or timer-based publishing
+- Add cron or a timer-based publish job
+- Wire trusted source ingestion into `scripts/generate-brief.ts`
