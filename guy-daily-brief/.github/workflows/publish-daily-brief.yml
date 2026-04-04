@@ -1,0 +1,48 @@
+name: Publish Daily Brief
+
+on:
+  schedule:
+    - cron: '15 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-daily-brief
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate and validate today's brief
+        run: npm run publish
+
+      - name: Commit updated brief content
+        run: |
+          if git diff --quiet -- content/briefs; then
+            echo "No briefing changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/briefs
+          git commit -m "Publish daily brief $(date -u +%F)"
+          git push

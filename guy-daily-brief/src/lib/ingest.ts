@@ -1,5 +1,21 @@
 import type { BriefCategory } from "./sources";
 
+const DEFAULT_FETCH_TIMEOUT_MS = 12000;
+
+async function fetchWithTimeout(url: string, init: RequestInit, timeoutMs = DEFAULT_FETCH_TIMEOUT_MS): Promise<Response> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(url, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export function decodeHtml(text: string): string {
   return text
     .replace(/<!\[CDATA\[|\]\]>/g, "")
@@ -45,7 +61,7 @@ export function cleanFetchedText(text: string): string {
 }
 
 export async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url, {
+  const response = await fetchWithTimeout(url, {
     headers: {
       "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
       accept: "text/html,application/xhtml+xml,application/xml;q=0.9,text/xml;q=0.9,*/*;q=0.8",
@@ -61,12 +77,12 @@ export async function fetchText(url: string): Promise<string> {
 
 export async function fetchReadableArticle(url: string): Promise<string | undefined> {
   try {
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout(url, {
       headers: {
         "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
         accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
       },
-    });
+    }, 9000);
 
     if (!response.ok) return undefined;
     const html = await response.text();
