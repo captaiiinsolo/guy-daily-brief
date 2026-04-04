@@ -57,7 +57,7 @@ content/briefs/YYYY-MM-DD.json
 This repo now supports automated daily publishing through GitHub Actions.
 
 - Workflow: `.github/workflows/publish-daily-brief.yml`
-- Schedule: `15 12 * * *` (12:15 UTC / 5:15 AM America/Los_Angeles during standard time)
+- Schedule: `0 14 * * *` (2:00 PM UTC / 6:00 AM Pacific Standard Time)
 - Manual run: GitHub Actions → **Publish Daily Brief** → **Run workflow**
 
 The workflow runs `npm run publish`, commits any new file in `content/briefs`, and pushes it to `main`, which lets Cloudflare Pages deploy the updated dashboard.
