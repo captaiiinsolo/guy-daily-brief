@@ -12,6 +12,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: guy-daily-brief
 
     steps:
       - name: Check out repository
@@ -24,6 +27,7 @@ jobs:
         with:
           node-version: "22"
           cache: npm
+          cache-dependency-path: guy-daily-brief/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -32,14 +36,15 @@ jobs:
         run: npm run publish
 
       - name: Commit updated brief content
+        working-directory: .
         run: |
-          if git diff --quiet -- content/briefs; then
+          if git diff --quiet -- guy-daily-brief/content/briefs; then
             echo "No briefing changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/briefs
+          git add guy-daily-brief/content/briefs
           git commit -m "Publish daily brief $(date -u +%F)"
           git push origin HEAD:main
