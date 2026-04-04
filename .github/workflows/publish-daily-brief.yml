@@ -3,7 +3,8 @@ name: Publish Daily Brief
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 14 * * *"
+    - cron: "0 13 * 3-10 *"
+    - cron: "0 14 * 1,2,11,12 *"
 
 permissions:
   contents: write
