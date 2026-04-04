@@ -49,6 +49,17 @@
           "name": "NPR World",
           "url": "https://www.npr.org/2026/04/04/nx-s1-5763625/german-researchers-set-right-the-story-of-a-9-000-year-old-shamans-grave"
         }
+      },
+      {
+        "headline": "The significance of the space mission that's making history",
+        "summary": "Former NASA chief of staff Bale Dalton talks about the work that went into the Artemis mission plan and what to watch for on the journey.",
+        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
+        "author": "Rob Schmitz",
+        "publishedAt": "2026-04-04",
+        "source": {
+          "name": "NPR World",
+          "url": "https://www.npr.org/2026/04/04/nx-s1-5771727/the-significance-of-the-space-mission-thats-making-history"
+        }
       }
     ],
     "tech": [
