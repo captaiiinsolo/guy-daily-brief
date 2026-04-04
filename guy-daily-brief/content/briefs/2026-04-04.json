@@ -5,6 +5,17 @@
   "sections": {
     "us": [
       {
+        "headline": "German researchers set right the story of a 9,000-year-old shaman's grave",
+        "summary": "When a 9,000 year-old grave of a shaman was discovered in Nazi Germany, the discovery was quickly politicized to support Nazi propaganda. But new analysis shows that initial narrative was all wrong.",
+        "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
+        "author": "Rob Schmitz",
+        "publishedAt": "2026-04-04",
+        "source": {
+          "name": "NPR",
+          "url": "https://www.npr.org/2026/04/04/nx-s1-5763625/german-researchers-set-right-the-story-of-a-9-000-year-old-shamans-grave"
+        }
+      },
+      {
         "headline": "Judge halts Trump effort requiring colleges to show they don't consider race in admissions",
         "summary": "A federal judge on Saturday said the Trump Administration the demand to collect data from universities was rolled out in a \"rushed and chaotic\" manner.",
         "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
@@ -14,41 +25,29 @@
           "name": "NPR",
           "url": "https://www.npr.org/2026/04/04/nx-s1-5773915/judge-halts-trump-effort-college-admissions-race"
         }
-      },
-      {
-        "headline": "After the Minnesota surge, ICE is moving to a quieter enforcement approach",
-        "summary": "ICE seems to be changing from aggressive immigration enforcement on city streets to an apparent return to operations that rely heavily on local law enforcement. But even in Florida, where sheriffs are required to cooperate with ICE, some conservative sheriffs have concerns about pursuing immigrants with no criminal records.",
-        "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
-        "author": "Meg Anderson",
-        "publishedAt": "2026-04-04",
-        "extractedText": "ICE seems to be changing from aggressive immigration enforcement on city streets to an apparent return to operations that rely heavily on local law enforcement. But even in Florida, where sheriffs are required to cooperate with ICE, some conservative sheriffs have concerns about pursuing immigrants with no criminal records.\n\n(Image credit: Joe Raedle)",
-        "source": {
-          "name": "NPR",
-          "url": "https://www.npr.org/2026/04/04/nx-s1-5768273/after-minnesota-ice-surge-shift-to-quieter-enforcement"
-        }
       }
     ],
     "world": [
       {
-        "headline": "The significance of the space mission that's making history",
-        "summary": "Former NASA chief of staff Bale Dalton talks about the work that went into the Artemis mission plan and what to watch for on the journey.",
+        "headline": "Local culture shapes the Zairean liturgy",
+        "summary": "Easter in the Democratic Republic of the Congo—where congregants celebrate with the Zairean Rite, the only Vatican-approved liturgy shaped by local culture, alive with song, dance, and striking ritual.",
+        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
+        "author": "Emmet Livingstone",
+        "publishedAt": "2026-04-04",
+        "source": {
+          "name": "NPR World",
+          "url": "https://www.npr.org/2026/04/04/nx-s1-5769881/local-culture-shapes-the-zairean-liturgy"
+        }
+      },
+      {
+        "headline": "German researchers set right the story of a 9,000-year-old shaman's grave",
+        "summary": "When a 9,000 year-old grave of a shaman was discovered in Nazi Germany, the discovery was quickly politicized to support Nazi propaganda. But new analysis shows that initial narrative was all wrong.",
         "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
         "author": "Rob Schmitz",
         "publishedAt": "2026-04-04",
         "source": {
           "name": "NPR World",
-          "url": "https://www.npr.org/2026/04/04/nx-s1-5771727/the-significance-of-the-space-mission-thats-making-history"
-        }
-      },
-      {
-        "headline": "U.S. searches for airman shot down in Iran, while Trump posts ultimatum",
-        "summary": "At the start of the sixth week of war, U.S. forces search for a missing airman and President Trump reiterates his ultimatum for Iran to open the Straight of Hormuz.",
-        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
-        "author": "Lauren Frayer",
-        "publishedAt": "2026-04-04",
-        "source": {
-          "name": "NPR World",
-          "url": "https://www.npr.org/2026/04/04/nx-s1-5773100/u-s-searches-for-airman-shot-down-in-iran-while-trump-posts-ultimatum"
+          "url": "https://www.npr.org/2026/04/04/nx-s1-5763625/german-researchers-set-right-the-story-of-a-9-000-year-old-shamans-grave"
         }
       }
     ],
