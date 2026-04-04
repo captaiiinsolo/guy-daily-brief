@@ -1,11 +1,14 @@
+import RefreshSectionButton from "@/components/RefreshSectionButton";
 import type { Story } from "@/lib/schema";
+import type { BriefCategory } from "@/lib/sources";
 
 type Props = {
   title: string;
   stories: Story[];
+  category: BriefCategory;
 };
 
-export default function SectionBlock({ title, stories }: Props) {
+export default function SectionBlock({ title, stories, category }: Props) {
   return (
     <section className="space-y-5">
       <div className="flex items-end justify-between gap-4 border-b border-white/10 pb-3">
@@ -54,6 +57,10 @@ export default function SectionBlock({ title, stories }: Props) {
             ) : null}
           </article>
         ))}
+      </div>
+
+      <div className="border-t border-white/10 pt-4">
+        <RefreshSectionButton section={category} />
       </div>
     </section>
   );

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "generate": "tsx scripts/generate-brief.ts",
+    "refresh-section": "tsx scripts/refresh-section.ts",
     "validate": "tsx scripts/validate-briefs.ts",
     "publish": "npm run generate && npm run validate"
   },

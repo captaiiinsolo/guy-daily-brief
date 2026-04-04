@@ -49,9 +49,9 @@ export default function HomePage() {
           </div>
         </header>
 
-        <SectionBlock title="US News" stories={brief.sections.us} />
-        <SectionBlock title="World News" stories={brief.sections.world} />
-        <SectionBlock title="Tech / Hacker News" stories={brief.sections.tech} />
+        <SectionBlock title="US News" stories={brief.sections.us} category="us" />
+        <SectionBlock title="World News" stories={brief.sections.world} category="world" />
+        <SectionBlock title="Tech / Hacker News" stories={brief.sections.tech} category="tech" />
         <Watchlist items={brief.watchlist} />
 
         <footer className="border-t border-white/10 pt-6">

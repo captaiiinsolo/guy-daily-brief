@@ -2,6 +2,17 @@ name: Publish Daily Brief
 
 on:
   workflow_dispatch:
+    inputs:
+      section:
+        description: "Refresh only one section instead of the full brief"
+        required: false
+        type: choice
+        options:
+          - all
+          - us
+          - world
+          - tech
+        default: all
   schedule:
     - cron: "0 13 * 3-10 *"
     - cron: "0 14 * 1,2,11,12 *"
@@ -33,8 +44,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate and validate today's brief
-        run: npm run publish
+      - name: Generate today's brief or one section
+        run: |
+          SECTION="${{ github.event.inputs.section || 'all' }}"
+          if [ "$SECTION" = "all" ]; then
+            npm run publish
+          else
+            npm run refresh-section -- "$SECTION"
+            npm run validate
+          fi
 
       - name: Commit updated brief content
         working-directory: .
@@ -47,5 +65,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add guy-daily-brief/content/briefs
-          git commit -m "Publish daily brief $(date -u +%F)"
+          SECTION="${{ github.event.inputs.section || 'all' }}"
+          if [ "$SECTION" = "all" ]; then
+            git commit -m "Publish daily brief $(date -u +%F)"
+          else
+            git commit -m "Refresh ${SECTION} section $(date -u +%F)"
+          fi
           git push origin HEAD:main
