@@ -58,14 +58,9 @@ This repo now supports automated daily publishing through GitHub Actions.
 
 - Workflow: `.github/workflows/publish-daily-brief.yml`
 - Schedule: `0 13 * 3-10 *` and `0 14 * 1,2,11,12 *` (targets 6:00 AM Los Angeles local time across daylight saving changes)
-- Manual full run: GitHub Actions → **Publish Daily Brief** → **Run workflow**
-- Manual single-section run: choose the `section` input (`us`, `world`, or `tech`) before running the workflow
+- Manual run: GitHub Actions → **Publish Daily Brief** → **Run workflow**
 
-The workflow can either:
-- run `npm run publish` for a full daily refresh, or
-- run `npm run refresh-section -- <section>` to regenerate only one section for today's brief
-
-Afterward it validates the brief, commits any changed file in `content/briefs`, and pushes to `main`, which lets Cloudflare Pages deploy the updated dashboard.
+The workflow runs `npm run publish`, commits any new file in `content/briefs`, and pushes it to `main`, which lets Cloudflare Pages deploy the updated dashboard.
 
 ## Shipping checklist
 

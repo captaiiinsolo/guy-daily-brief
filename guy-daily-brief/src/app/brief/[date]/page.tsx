@@ -35,9 +35,9 @@ export default async function BriefPage({
           <p className="max-w-xl text-base leading-7 text-zinc-300">{brief.summary}</p>
         </header>
 
-        <SectionBlock title="US News" stories={brief.sections.us} category="us" />
-        <SectionBlock title="World News" stories={brief.sections.world} category="world" />
-        <SectionBlock title="Tech / Hacker News" stories={brief.sections.tech} category="tech" />
+        <SectionBlock title="US News" stories={brief.sections.us} />
+        <SectionBlock title="World News" stories={brief.sections.world} />
+        <SectionBlock title="Tech / Hacker News" stories={brief.sections.tech} />
         <Watchlist items={brief.watchlist} />
       </div>
     </main>
