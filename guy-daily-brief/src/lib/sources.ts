@@ -11,17 +11,17 @@ export type FeedSource = {
 export const feedSources: FeedSource[] = [
   {
     category: "us",
-    sourceName: "NPR",
-    feedUrl: "https://feeds.npr.org/1001/rss.xml",
-    articleDomainHint: "npr.org",
-    maxItems: 1,
-  },
-  {
-    category: "us",
     sourceName: "The Guardian US",
     feedUrl: "https://www.theguardian.com/us-news/rss",
     articleDomainHint: "theguardian.com",
-    maxItems: 3,
+    maxItems: 4,
+  },
+  {
+    category: "us",
+    sourceName: "CBS News US",
+    feedUrl: "https://www.cbsnews.com/latest/rss/us",
+    articleDomainHint: "cbsnews.com",
+    maxItems: 2,
   },
   {
     category: "world",

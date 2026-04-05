@@ -66,8 +66,6 @@ async function main() {
   const targetCounts = { us: 3, world: 3, tech: 3 } as const;
 
   for (const source of feedSources) {
-    if (!source.feedUrl.endsWith(".xml") && !source.feedUrl.endsWith("/feed/")) continue;
-
     const xml = cleanFetchedText(await fetchText(source.feedUrl));
     const items = extractItems(xml).slice(0, source.maxItems + 6);
 

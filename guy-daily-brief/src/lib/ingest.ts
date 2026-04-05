@@ -53,13 +53,19 @@ export function extractItems(xml: string) {
   return matches.map((match) => match[1]);
 }
 
+function normalizeXmlTag(tag: string): string {
+  return tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/:/g, "(?:[:\\w-]*:)?");
+}
+
 export function extractTag(block: string, tag: string): string | undefined {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  const normalizedTag = normalizeXmlTag(tag);
+  const match = block.match(new RegExp(`<${normalizedTag}[^>]*>([\\s\\S]*?)<\\/${normalizedTag}>`, "i"));
   return match ? stripTags(match[1]) : undefined;
 }
 
 export function extractRawTag(block: string, tag: string): string | undefined {
-  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  const normalizedTag = normalizeXmlTag(tag);
+  const match = block.match(new RegExp(`<${normalizedTag}[^>]*>([\\s\\S]*?)<\\/${normalizedTag}>`, "i"));
   return match ? decodeHtml(match[1].trim()) : undefined;
 }
 
