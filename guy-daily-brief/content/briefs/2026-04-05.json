@@ -10,6 +10,7 @@
         "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
         "author": "Rob Schmitz",
         "publishedAt": "2026-04-04",
+        "readingMode": "brief",
         "source": {
           "name": "NPR",
           "url": "https://www.npr.org/2026/04/04/nx-s1-5763625/german-researchers-set-right-the-story-of-a-9-000-year-old-shamans-grave"
@@ -21,46 +22,101 @@
         "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
         "author": "The Associated Press",
         "publishedAt": "2026-04-04",
+        "readingMode": "brief",
         "source": {
           "name": "NPR",
           "url": "https://www.npr.org/2026/04/04/nx-s1-5773915/judge-halts-trump-effort-college-admissions-race"
+        }
+      },
+      {
+        "headline": "After the Minnesota surge, ICE is moving to a quieter enforcement approach",
+        "summary": "ICE seems to be changing from aggressive immigration enforcement on city streets to an apparent return to operations that rely heavily on local law enforcement. But even in Florida, where sheriffs are required to cooperate with ICE, some conservative sheriffs have concerns about pursuing immigrants with no criminal records.",
+        "whyItMatters": "This landed in the US file because it points to a material change in policy, law, public safety, or the national operating environment.",
+        "author": "Meg Anderson",
+        "publishedAt": "2026-04-04",
+        "readingMode": "brief",
+        "source": {
+          "name": "NPR",
+          "url": "https://www.npr.org/2026/04/04/nx-s1-5768273/after-minnesota-ice-surge-shift-to-quieter-enforcement"
         }
       }
     ],
     "world": [
       {
-        "headline": "Local culture shapes the Zairean liturgy",
-        "summary": "Easter in the Democratic Republic of the Congo—where congregants celebrate with the Zairean Rite, the only Vatican-approved liturgy shaped by local culture, alive with song, dance, and striking ritual.",
+        "headline": "US and Iran trade threats to unleash 'hell' as search for missing US airman continues",
+        "summary": "Iran rejected Donald Trump's ultimatum for a deal to re-open the Strait of Hormuz whose closure has led to a spike in oil prices.",
         "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
-        "author": "Emmet Livingstone",
         "publishedAt": "2026-04-04",
+        "extractedText": "ShareSave• Add as preferred on Google Ghoncheh Habibiazad,BBC Persianand Henri Astier Reuters Research buildings at Tehran&#x27;s Shahid Beheshti University were among the targets of Israel and US bombardments on Saturday US President Donald Trump has threatened that \"all hell would rain down on\" Iran if it did not make a deal, prompting Tehran to respond with similar rhetoric.\n\nAn Iranian military spokesman warned that the entire region would become \"hell\" if the US and Israel continued to escalate the conflict.\n\nOn Saturday Iran fired more missiles at the Gulf States, Iraq and Israel, with falling debris from intercepted missiles causing damage.\n\nMeanwhile, US and Iranian forces are searching for a missing American crew member after a US F-15 fighter jet was shot down over southern Iran on Friday. The pilot has been rescued, according to US media.\n\nIranian officials are urging citizens to find the missing crew \"alive\" and are offering rewards for his capture.\n\nA US A-10 Warthog aircraft that was part of the search-and-rescue mission for the downed jet was also shot and damaged, but its pilot was rescued.\n\nOn 27 March Trump announced he was pausing attacks on energy plants for 10 days for Iran to \"make a deal\".\n\nOn Saturday he reiterated his threat on Truth Social that \"all Hell will reign down on them\" if they failed to do this, or to reopen the Strait of Hormuz, within 48 hours.\n\nLater Ebrahim Zolfaghari, spokesperson for Khatam al-Anbiya Central Headquarters, says: \"If hostility escalates, the entire region will turn into hell for you; the illusion of defeating the Islamic Republic of Iran will become a quagmire into which you will sink.\"\n\nUS and Israel continued its bombardment of Iranian military, energy and other industrial sites on Saturday. Iran fired missiles at the Gulf States, Iraq and Israel, with falling debris from intercepted missiles causing damage.\n\nTrump shared a video on his Truth Social platform which he says shows a \"massive strike\" on the capital Tehran. However, the video appeared to be 24 hours old.\n\nTrump claimed in his post that \"many of Iran&#x27;s Military Leaders, who have led them poorly and unwisely, are terminated, along with much else\", following the strike.\n\nThere has been no response from Tehran to Trump&#x27;s claims, nor have the US provided further details to the post.\n\nIsrael said explosions have been heard over Jerusalem. Meanwhile Iran has continued to fire missiles at Gulf States and Iraq.\n\nIran said the area around its Bushehr nuclear power plant had been attacked for the fourth time during the war.\n\nOne of the plant&#x27;s employees was killed in the attack, Iran&#x27;s Atomic Energy Organisation said. It blamed the US and Israel for the attack, but neither country has confirmed carrying it out.\n\nBushehr is Iran&#x27;s only operational nuclear power plant and was completed with Russia&#x27;s help.\n\nThe International Atomic Energy Agency - the UN&#x27;s nuclear watchdog - said it had been informed of the strike and had expressed \"deep concern\".",
+        "readingMode": "full",
         "source": {
-          "name": "NPR World",
-          "url": "https://www.npr.org/2026/04/04/nx-s1-5769881/local-culture-shapes-the-zairean-liturgy"
+          "name": "BBC World",
+          "url": "https://www.bbc.com/news/articles/c5y90jl8veyo?at_medium=RSS&at_campaign=rss"
         }
       },
       {
-        "headline": "German researchers set right the story of a 9,000-year-old shaman's grave",
-        "summary": "When a 9,000 year-old grave of a shaman was discovered in Nazi Germany, the discovery was quickly politicized to support Nazi propaganda. But new analysis shows that initial narrative was all wrong.",
+        "headline": "Search for missing airman presents serious test for US",
+        "summary": "The stakes could rise further if the weapons system officer of the downed F15 Eagle plane is captured by Iran.",
         "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
-        "author": "Rob Schmitz",
         "publishedAt": "2026-04-04",
+        "extractedText": "ShareSave• Add as preferred on Google Simi JolaosoNorth America correspondent, Washington Getty Images One of two crew members of the downed F15 Eagle is still missing President Donald Trump had said Iran couldn&#x27;t \"do a thing\" about American aircraft operating over its territory, insisting its air defences had been significantly weakened.\n\nHis Defence Secretary Pete Hegseth also said the US had achieved \"air superiority\" over Iran.\n\nSo, Friday&#x27;s downing of a F-15 Eagle is a significant blow to Washington DC.\n\nIt suggests Iran is still able to defend its skies, even if at a limited capacity.\n\nThe stakes could rise further, though, depending on who the missing weapons systems officer is captured, or rescued, by.\n\nThe BBC understands President Trump&#x27;s national security team spent much of Thursday in the West Wing briefing him on a search-and-rescue mission that also came under Iranian fire. US media report the crew were wounded but managed to escape Iranian airspace.\n\nPublicly, the president has played down this entire incident and suggested it won&#x27;t affect negotiations with Tehran to end the war that began with US and Israeli strikes on 28 February. But privately, this is likely to be of serious concern - particularly as Iran&#x27;s Islamic Revolutionary Guard Corps is said to have launched its own search for the missing American, reportedly using troops and locals, and offering them a reward of around $66,000 (£50,000) to capture him alive.\n\nIf the missing American is found by Iranian forces, the implications could be profound. At the very least, it would be a political embarrassment for Washington.\n\nThe US airman could be paraded as a propaganda tool, which would bring back grim reminders of the 1979 Iran hostage crisis, when American diplomats were held for 444 days.\n\nFollowing a failed military rescue, the US secured their release by lifting some sanctions and unfreezing nearly $8bn worth of Iranian assets. It was an event that left deep political scars in the US.\n\nSuccessive administrations also went to great lengths to secure the release of detained Americans, at times through controversial means.\n\nFor example, in 2014, President Barack Obama&#x27;s administration exchanged five Taliban detainees, held at Guantanamo Bay detention camp, for Bowe Bergdahl, a US Army soldier captured by the Taliban in Afghanistan in 2009. Critics argued this swap incentivised future hostage-taking.\n\nThat history raises difficult questions for this White House.\n\nThe capture of a US service member could intensify pressure on President Trump to act decisively and escalate militarily in response, or, on the other hand, it could create an opening to pause operations and pursue backchannel efforts to secure the airman&#x27;s return.\n\nIf the missing American is captured by the Iranians and used as a bargaining chip, it would be a serious test for Washington in this already volatile conflict.\n\nFor now, what&#x27;s unfolding is a high-stakes race on the ground between the two adversaries to find him.\n\nLawmakers here in Washington have said prayers and expressed support. However, divisions are emerging. Republican Congresswoman Nancy Mace said it was \"far past time we bring troops home\", while Democratic Senator Tim Kaine urged Iran to treat any captured airman in line with international law.\n\nThere is growing concern about the risk to US service personnel in this conflict, particularly amid talk of a possible ground invasion. Across the political spectrum, there is little appetite for another so-called \"forever war\", or for further American casualties.",
+        "readingMode": "full",
         "source": {
-          "name": "NPR World",
-          "url": "https://www.npr.org/2026/04/04/nx-s1-5763625/german-researchers-set-right-the-story-of-a-9-000-year-old-shamans-grave"
+          "name": "BBC World",
+          "url": "https://www.bbc.com/news/articles/c0le69de645o?at_medium=RSS&at_campaign=rss"
+        }
+      },
+      {
+        "headline": "US says it has arrested relatives of late Iranian ​general Qasem ​Soleimani",
+        "summary": "The niece and grand-niece of Qasem Soleimani are in the custody of US Immigration and Customs Enforcement, officials said.",
+        "whyItMatters": "This matters because it affects the broader geopolitical picture, stability, trade, or diplomatic posture beyond a one-day headline cycle.",
+        "publishedAt": "2026-04-04",
+        "extractedText": "ShareSave• Add as preferred on Google Brandon Livesay Getty Images Gen Qasem Soleimani was killed in 2020 in a US air strike The niece and grand-niece of the deceased commander of the Iranian Revolutionary Guard Corps, Gen Qasem Soleimani, have been arrested, the US state department has said.\n\nHamideh Soleimani Afshar and her daughter&#x27;s lawful US permanent resident status was revoked by Secretary of State Marco Rubio, a statement released on Saturday said.\n\nHowever, Soleimani&#x27;s daughter has called the state department&#x27;s claims false, saying the arrested individuals \"have no connection whatsoever\" to her father.\n\nSoleimani, who was Iran&#x27;s most powerful military commander, was killed in 2020 in a US air strike in Iraq which was ordered by then US President Donald Trump.\n\nIn a post on social media, Rubio said the two women were in the custody of US Immigration and Customs Enforcement (ICE), pending removal from the country.\n\nHe added in the statement on X that Soleimani Afshar and her daughter were \"green card holders living lavishly in the United States\".\n\nAfter entering the US on a tourist visa in 2015, Soleimani Afshar was granted asylum in 2019 and became a green card holder in 2021, the US Department of Homeland Security (DHS) said in a statement to the BBC&#x27;s US partner CBS News.\n\nIn filing for a naturalisation application in 2025, she revealed that she had visited Iran four times since receiving her green card, according to the DHS.\n\n\"Her trips to Iran illustrate her asylum claims were fraudulent,\" the DHS said.\n\nThe DHS added that Soleimani Afshar&#x27;s daughter, Sarinasadat Hosseiny, came to the US in 2015 on a student visa and was later granted asylum in 2019 and a green card in 2023.\n\nThe state department said Soleimani Afshar was an \"outspoken supporter of the totalitarian, terrorist regime in Iran\" and had promoted \"Iranian regime propaganda\" on her social media account.\n\nSoleimani Afshar&#x27;s husband has also been barred from the US, the statement said. The state department did not name Soleimani Afshar&#x27;s husband.\n\nIn a statement, Narjes Soleimani, Soleimani&#x27;s daughter, said: \"The individuals arrested in the US have no connection whatsoever to Martyr Soleimani and the claims made by the US State Department are false.\"\n\nShe added that the US had \"become so weak and insignificant\" and was \"fabricating lies against a great figure\".\n\nThe BBC has contacted the state department for comment.\n\nSoleimani spearheaded Iranian military operations in the Middle East as head of Iran&#x27;s elite Quds Force.\n\nThe 62-year-old was killed at Baghdad airport, along with other Iran-backed militia figures.\n\nTrump spoke about Soleimani during his national address on Wednesday, referencing the strike he ordered on the commander.",
+        "readingMode": "full",
+        "source": {
+          "name": "BBC World",
+          "url": "https://www.bbc.com/news/articles/cgqkn4j48qdo?at_medium=RSS&at_campaign=rss"
         }
       }
     ],
     "tech": [
       {
-        "headline": "CISA alert and advisory categories remain the core of the security feed",
-        "summary": "CISA's alert, advisory, and malware analysis tracks remain the cleanest official source for high-priority cyber issues that deserve a place in the dashboard.",
-        "whyItMatters": "This belongs here because security and infrastructure changes tend to have longer practical consequences than product hype.",
+        "headline": "Artemis II is going so well that we&#039;re left to talk about frozen urine",
+        "summary": "\"I think the fixation on the toilet is kind of human nature.\"",
+        "whyItMatters": "This belongs here because it is more likely to affect the technical landscape than a routine product or hype story.",
+        "author": "Eric Berger",
         "publishedAt": "2026-04-05",
-        "extractedText": "CISA uses alerts for recent, ongoing, or high-impact cyber threats, advisories for deeper technical guidance on tactics and mitigations, and malware analysis reports for detailed behavior and detection information. For the dashboard, this matters because it gives the tech file an official, high-signal backbone instead of relying on hype-heavy product coverage.",
+        "extractedText": "The Orion spacecraft is now much closer to the Moon than Earth on its 10-day journey into deep space and back, and overall everything is going smashingly well.\n\nThings are going so well that, during the daily mission briefings at Johnson Space Center in Houston, there's just not that much of substance to talk about. So the discourse keeps coming back to, of all things, the toilet on board Orion.\n\nAs you may recall, there were some toilet problems in the initial hours of the mission. During the initial checkout of spacecraft systems, Orion's toilet was supposed to be “wetted” with water to prime the pump. Not enough water was introduced, so the pump was non-responsive. Once more water was added, it began functioning fine.\n\nRead full article\n\nComments",
+        "readingMode": "full",
         "source": {
-          "name": "CISA",
-          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com/space/2026/04/artemis-ii-is-going-so-well-that-were-left-to-talk-about-frozen-urine/"
+        }
+      },
+      {
+        "headline": "Tech companies are trying to neuter Colorado’s landmark right-to-repair law",
+        "summary": "A state bill is a glimpse of how corporations are limiting people's ability to make their own fixes and upgrades.",
+        "whyItMatters": "This belongs here because it is more likely to affect the technical landscape than a routine product or hype story.",
+        "author": "Boone Ashworth, WIRED.com",
+        "publishedAt": "2026-04-04",
+        "extractedText": "Right-to-repair efforts are gaining headway in the US. A lot of that movement has been led by state legislation in Colorado.\n\nSince 2022, Colorado has passed bills giving users the tools, instructions, and legal capabilities to fix or upgrade their own wheelchairs, agricultural farming equipment, and consumer electronics. Similar efforts have rippled out through the country, where repair bills have been introduced in every US state and passed in eight of them.\n\n“Colorado has the broadest repair rights in the country,” says Danny Katz, executive director CoPIRG, the Colorado branch of the consumer advocate group Pirg. “We should be proud of leading the way.”\n\nRead full article\n\nComments",
+        "readingMode": "full",
+        "source": {
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com/tech-policy/2026/04/tech-companies-are-trying-to-neuter-colorados-landmark-right-to-repair-law/"
+        }
+      },
+      {
+        "headline": "Trump proposes steep cut to NASA budget as astronauts head for the Moon",
+        "summary": "Congress will likely reject the White House's NASA cuts, just as it did last year.",
+        "whyItMatters": "This belongs here because it is more likely to affect the technical landscape than a routine product or hype story.",
+        "author": "Stephen Clark",
+        "publishedAt": "2026-04-03",
+        "extractedText": "President Donald Trump released a budget blueprint on Friday calling for a 23 percent cut to NASA's budget, two days after the agency launched four astronauts on the first crewed lunar mission in more than 50 years.\n\nThe spending proposal for fiscal year 2027 is the opening salvo in a multi-month budget process. Both houses of Congress must pass their own appropriations bills, reconcile any differences between the two, and then send the final budget to the White House for President Trump's signature. Fiscal year 2027 begins on October 1.\n\nThe White House requested a similar cut to NASA last year. The Republican-led Congress resoundingly rejected the proposal and kept NASA's budget close to its level in the final year of the Biden administration. Like last year's budget, the proposal from the Trump administration will undergo major changes as Congress weighs in over the coming months.\n\nRead full article\n\nComments",
+        "readingMode": "full",
+        "source": {
+          "name": "Ars Technica",
+          "url": "https://arstechnica.com/space/2026/04/trump-proposes-steep-cut-to-nasa-budget-as-astronauts-head-for-the-moon/"
         }
       }
     ]

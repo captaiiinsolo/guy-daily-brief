@@ -11,6 +11,7 @@ type Story = {
   publishedAt?: string;
   extractedText?: string;
   extractedMarkdown?: string;
+  readingMode?: "full" | "brief";
   source: {
     name: string;
     url: string;
@@ -62,14 +63,16 @@ async function main() {
     ],
   };
 
+  const targetCounts = { us: 3, world: 3, tech: 3 } as const;
+
   for (const source of feedSources) {
-    if (!source.feedUrl.endsWith(".xml")) continue;
+    if (!source.feedUrl.endsWith(".xml") && !source.feedUrl.endsWith("/feed/")) continue;
 
     const xml = cleanFetchedText(await fetchText(source.feedUrl));
-    const items = extractItems(xml).slice(0, source.maxItems + 5);
+    const items = extractItems(xml).slice(0, source.maxItems + 6);
 
     for (const item of items) {
-      if (brief.sections[source.category].length >= source.maxItems) break;
+      if (brief.sections[source.category].length >= targetCounts[source.category] + 4) break;
 
       const headline = extractTag(item, "title");
       const summary = extractTag(item, "description");
@@ -82,7 +85,7 @@ async function main() {
 
       let extractedText = encoded ? stripTags(encoded) : undefined;
       if (!extractedText || extractedText.length < 420) {
-        extractedText = await fetchReadableArticle(url);
+        extractedText = await fetchReadableArticle(url, encoded || summary);
       }
 
       const normalizedExtractedText = extractedText && extractedText.length > summary.length + 80 ? extractedText : undefined;
@@ -94,6 +97,7 @@ async function main() {
         author,
         publishedAt,
         extractedText: normalizedExtractedText,
+        readingMode: normalizedExtractedText ? "full" : "brief",
         source: {
           name: source.sourceName,
           url,
@@ -113,6 +117,7 @@ async function main() {
       whyItMatters: "This belongs here because security and infrastructure changes tend to have longer practical consequences than product hype.",
       publishedAt: today,
       extractedText: "CISA uses alerts for recent, ongoing, or high-impact cyber threats, advisories for deeper technical guidance on tactics and mitigations, and malware analysis reports for detailed behavior and detection information. For the dashboard, this matters because it gives the tech file an official, high-signal backbone instead of relying on hype-heavy product coverage.",
+      readingMode: "full",
       source: {
         name: "CISA",
         url: "https://www.cisa.gov/news-events/cybersecurity-advisories",

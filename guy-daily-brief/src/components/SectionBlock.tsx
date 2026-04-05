@@ -24,7 +24,19 @@ export default function SectionBlock({ title, stories }: Props) {
             key={`${story.headline}-${i}`}
             className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm transition hover:border-sky-400/20 hover:bg-white/[0.07] sm:p-6"
           >
-            <h3 className="text-lg font-semibold leading-tight tracking-[-0.02em] text-white sm:text-xl">{story.headline}</h3>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <h3 className="text-lg font-semibold leading-tight tracking-[-0.02em] text-white sm:text-xl">{story.headline}</h3>
+              <span
+                className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] ${
+                  story.readingMode === "full"
+                    ? "border border-emerald-300/20 bg-emerald-400/10 text-emerald-200"
+                    : "border border-white/10 bg-white/5 text-zinc-400"
+                }`}
+              >
+                {story.readingMode === "full" ? "Read on site" : "Brief only"}
+              </span>
+            </div>
+
             <p className="mt-3 text-base leading-7 text-zinc-200">{story.summary}</p>
             <p className="mt-4 text-sm leading-7 text-zinc-400 sm:text-[15px]">
               <span className="mr-1 font-semibold uppercase tracking-[0.16em] text-zinc-500">Why it matters</span>
@@ -51,7 +63,13 @@ export default function SectionBlock({ title, stories }: Props) {
                     </p>
                   ))}
               </div>
-            ) : null}
+            ) : (
+              <div className="mt-5 rounded-2xl border border-white/8 bg-black/15 p-4 sm:p-5">
+                <p className="text-sm leading-7 text-zinc-400">
+                  This item is currently a short brief on-site. Use the source link if you want the publisher&apos;s full version.
+                </p>
+              </div>
+            )}
           </article>
         ))}
       </div>

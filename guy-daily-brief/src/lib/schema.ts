@@ -8,6 +8,7 @@ export const storySchema = z.object({
   publishedAt: z.string().optional(),
   extractedText: z.string().optional(),
   extractedMarkdown: z.string().optional(),
+  readingMode: z.enum(["full", "brief"]).optional(),
   source: z.object({
     name: z.string(),
     url: z.string().url(),

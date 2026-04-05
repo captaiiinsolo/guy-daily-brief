@@ -105,6 +105,24 @@ function extractMetaContent(html: string, key: string, attr: "property" | "name"
   return regex.exec(html)?.[1] ? decodeHtml(regex.exec(html)?.[1] ?? "").trim() : undefined;
 }
 
+function extractGuardianFeedPreview(text: string): string | undefined {
+  const cleaned = stripTags(text)
+    .replace(/Continue reading\.*/i, "")
+    .trim();
+
+  return cleaned.length > 220 ? cleaned : undefined;
+}
+
+function extractNprBody(html: string): string | undefined {
+  const blocks = [...html.matchAll(/<div[^>]+class=["'][^"']*(?:storytext|story-text|article-body|rich-text)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi)]
+    .map((match) => stripTags(match[1]))
+    .map((text) => normalizeParagraph(text))
+    .filter((paragraph) => !isBoilerplateParagraph(paragraph));
+
+  const combined = blocks.join("\n\n").trim();
+  return combined.length > 320 ? combined : undefined;
+}
+
 function extractJsonLdArticleBody(html: string): string | undefined {
   const scripts = [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
 
@@ -142,7 +160,7 @@ function extractJsonLdArticleBody(html: string): string | undefined {
   return undefined;
 }
 
-export async function fetchReadableArticle(url: string): Promise<string | undefined> {
+export async function fetchReadableArticle(url: string, fallbackText?: string): Promise<string | undefined> {
   try {
     const response = await fetchWithTimeout(
       url,
@@ -157,6 +175,11 @@ export async function fetchReadableArticle(url: string): Promise<string | undefi
 
     if (!response.ok) return undefined;
     const html = await response.text();
+
+    if (/npr\.org/i.test(url)) {
+      const nprBody = extractNprBody(html);
+      if (nprBody) return nprBody;
+    }
 
     const jsonLdBody = extractJsonLdArticleBody(html);
     if (jsonLdBody) return jsonLdBody;
@@ -186,8 +209,12 @@ export async function fetchReadableArticle(url: string): Promise<string | undefi
       return `${metaDescription}\n\n${combined}`.trim();
     }
     if (combined.length > 220) return combined;
+    if (fallbackText) {
+      const guardianPreview = extractGuardianFeedPreview(fallbackText);
+      if (guardianPreview) return guardianPreview;
+    }
     if (metaDescription) return metaDescription;
-    return combined || undefined;
+    return combined || extractGuardianFeedPreview(fallbackText ?? "") || undefined;
   } catch {
     return undefined;
   }
