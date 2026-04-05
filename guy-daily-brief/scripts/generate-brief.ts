@@ -36,7 +36,7 @@ const outputPath = path.join(briefsDir, `${today}.json`);
 function dedupeStories(stories: Story[]) {
   const seen = new Set<string>();
   return stories.filter((story) => {
-    const key = `${story.headline.toLowerCase()}|${story.source.name}`;
+    const key = story.headline.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -66,7 +66,7 @@ async function main() {
     if (!source.feedUrl.endsWith(".xml")) continue;
 
     const xml = cleanFetchedText(await fetchText(source.feedUrl));
-    const items = extractItems(xml).slice(0, source.maxItems + 3);
+    const items = extractItems(xml).slice(0, source.maxItems + 5);
 
     for (const item of items) {
       if (brief.sections[source.category].length >= source.maxItems) break;
@@ -81,9 +81,11 @@ async function main() {
       if (!headline || !summary || !url) continue;
 
       let extractedText = encoded ? stripTags(encoded) : undefined;
-      if (!extractedText || extractedText.length < 280) {
+      if (!extractedText || extractedText.length < 420) {
         extractedText = await fetchReadableArticle(url);
       }
+
+      const normalizedExtractedText = extractedText && extractedText.length > summary.length + 80 ? extractedText : undefined;
 
       brief.sections[source.category].push({
         headline,
@@ -91,7 +93,7 @@ async function main() {
         whyItMatters: computeWhyItMatters(source.category, summary),
         author,
         publishedAt,
-        extractedText,
+        extractedText: normalizedExtractedText,
         source: {
           name: source.sourceName,
           url,

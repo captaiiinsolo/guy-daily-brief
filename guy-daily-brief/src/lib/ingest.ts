@@ -24,14 +24,24 @@ export function decodeHtml(text: string): string {
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ");
+    .replace(/&nbsp;/g, " ")
+    .replace(/&rsquo;/g, "’")
+    .replace(/&lsquo;/g, "‘")
+    .replace(/&rdquo;/g, "”")
+    .replace(/&ldquo;/g, "“")
+    .replace(/&mdash;/g, "—")
+    .replace(/&ndash;/g, "–")
+    .replace(/&hellip;/g, "…");
 }
 
 export function stripTags(text: string): string {
   return decodeHtml(text)
     .replace(/<img[^>]*>/gi, "")
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
     .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/p>/gi, "\n\n")
+    .replace(/<\/(p|div|section|article|h[1-6]|li)>/gi, "\n\n")
+    .replace(/<li[^>]*>/gi, "• ")
     .replace(/<[^>]+>/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .replace(/[ \t]+/g, " ")
@@ -75,30 +85,108 @@ export async function fetchText(url: string): Promise<string> {
   return await response.text();
 }
 
+function normalizeParagraph(paragraph: string): string {
+  return paragraph
+    .replace(/\s+/g, " ")
+    .replace(/^\s*[•·-]\s*/g, "")
+    .trim();
+}
+
+function isBoilerplateParagraph(paragraph: string): boolean {
+  return (
+    paragraph.length < 40 ||
+    /hide caption|toggle caption|copyright|all rights reserved|newsletter|sign up|advertisement|supported by|listen\s*·|read more|follow us/i.test(paragraph)
+  );
+}
+
+function extractMetaContent(html: string, key: string, attr: "property" | "name" = "property"): string | undefined {
+  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`<meta[^>]+${attr}=["']${escapedKey}["'][^>]+content=["']([\\s\\S]*?)["'][^>]*>`, "i");
+  return regex.exec(html)?.[1] ? decodeHtml(regex.exec(html)?.[1] ?? "").trim() : undefined;
+}
+
+function extractJsonLdArticleBody(html: string): string | undefined {
+  const scripts = [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+
+  for (const script of scripts) {
+    const raw = script[1]?.trim();
+    if (!raw) continue;
+
+    try {
+      const parsed = JSON.parse(raw);
+      const candidates = Array.isArray(parsed) ? parsed : [parsed];
+
+      for (const candidate of candidates) {
+        const graph = candidate?.["@graph"];
+        const nodes = Array.isArray(graph) ? graph : [candidate, ...(Array.isArray(graph) ? graph : [])];
+
+        for (const node of nodes) {
+          const articleBody = node?.articleBody;
+          if (typeof articleBody === "string") {
+            const cleaned = normalizeParagraph(stripTags(articleBody));
+            if (cleaned.length > 300) return cleaned;
+          }
+
+          const description = node?.description;
+          if (typeof description === "string") {
+            const cleaned = normalizeParagraph(stripTags(description));
+            if (cleaned.length > 300) return cleaned;
+          }
+        }
+      }
+    } catch {
+      continue;
+    }
+  }
+
+  return undefined;
+}
+
 export async function fetchReadableArticle(url: string): Promise<string | undefined> {
   try {
-    const response = await fetchWithTimeout(url, {
-      headers: {
-        "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
-        accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+    const response = await fetchWithTimeout(
+      url,
+      {
+        headers: {
+          "user-agent": "GuyDailyBrief/1.0 (+https://news.solomonsantos.me)",
+          accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
+        },
       },
-    }, 9000);
+      9000,
+    );
 
     if (!response.ok) return undefined;
     const html = await response.text();
 
-    const ogDescription = html.match(/<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i)?.[1];
-    const articleBodyMatches = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
-      .map((match) => stripTags(match[1]))
-      .filter((paragraph) => paragraph.length > 40)
-      .filter((paragraph) => !paragraph.includes("hide caption"))
-      .filter((paragraph) => !paragraph.includes("toggle caption"))
-      .slice(0, 14);
+    const jsonLdBody = extractJsonLdArticleBody(html);
+    if (jsonLdBody) return jsonLdBody;
 
-    const combined = articleBodyMatches.join("\n\n").trim();
+    const metaDescription =
+      extractMetaContent(html, "og:description") ??
+      extractMetaContent(html, "twitter:description", "name") ??
+      extractMetaContent(html, "description", "name");
 
-    if (combined.length > 300) return combined;
-    if (ogDescription) return ogDescription;
+    const articleBodyMatches = [...html.matchAll(/<(article|main|section|div)[^>]*>([\s\S]*?)<\/\1>/gi)]
+      .flatMap((match) => [...match[2].matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)])
+      .map((match) => normalizeParagraph(stripTags(match[1])))
+      .filter((paragraph) => !isBoilerplateParagraph(paragraph));
+
+    const fallbackParagraphs = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map((match) => normalizeParagraph(stripTags(match[1])))
+      .filter((paragraph) => !isBoilerplateParagraph(paragraph));
+
+    const paragraphs = (articleBodyMatches.length >= 3 ? articleBodyMatches : fallbackParagraphs)
+      .filter((paragraph, index, array) => array.indexOf(paragraph) === index)
+      .slice(0, 18);
+
+    const combined = paragraphs.join("\n\n").trim();
+
+    if (combined.length > 500) return combined;
+    if (combined.length > 220 && metaDescription && !combined.includes(metaDescription)) {
+      return `${metaDescription}\n\n${combined}`.trim();
+    }
+    if (combined.length > 220) return combined;
+    if (metaDescription) return metaDescription;
     return combined || undefined;
   } catch {
     return undefined;
