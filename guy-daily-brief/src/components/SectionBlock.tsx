@@ -1,3 +1,4 @@
+import ExpandableStoryText from "@/components/ExpandableStoryText";
 import type { Story } from "@/lib/schema";
 
 type Props = {
@@ -52,22 +53,7 @@ export default function SectionBlock({ title, stories }: Props) {
             )}
 
             {story.extractedText ? (
-              <details className="group mt-5 rounded-2xl border border-white/8 bg-black/20 p-4 sm:p-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 marker:hidden">
-                  <span>Full extracted text</span>
-                  <span className="text-zinc-500 transition group-open:rotate-180 group-open:text-zinc-300">⌄</span>
-                </summary>
-                <div className="mt-4 space-y-4 border-t border-white/8 pt-4">
-                  {story.extractedText
-                    .split(/\n\s*\n/)
-                    .filter(Boolean)
-                    .map((paragraph, idx) => (
-                      <p key={idx} className="text-[15px] leading-7 text-zinc-300 sm:text-base">
-                        {paragraph.replace(/\s+/g, " ").trim()}
-                      </p>
-                    ))}
-                </div>
-              </details>
+              <ExpandableStoryText text={story.extractedText} />
             ) : (
               <div className="mt-5 rounded-2xl border border-white/8 bg-black/15 p-4 sm:p-5">
                 <p className="text-sm leading-7 text-zinc-400">
