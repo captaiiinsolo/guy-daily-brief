@@ -1,14 +1,27 @@
 # Movie Agent Tooling
 
-## Current local tool
+## Current local tools
 - `movie_agent_search.py`
+- `movie_agent_add.py`
+- `movie_agent_lib.py`
 
 ## Purpose
-Reads `movie-agent.config.toml`, logs into qBittorrent Web UI/API, runs a movie search through qBittorrent's internal search engine, and ranks the returned results using Solo's current preferences.
+These tools read `movie-agent.config.toml`, log into qBittorrent Web UI/API, run movie searches through qBittorrent's internal search engine, and rank returned results using Solo's current preferences.
 
-## Example
+## Search example
 ```bash
 python3 /home/santos-family/.openclaw/workspace/movie_agent_search.py "Beethoven 1992" --limit 5
+```
+
+## Choose-and-submit example
+Preview only, no download started:
+```bash
+python3 /home/santos-family/.openclaw/workspace/movie_agent_add.py "Beethoven 1992" --choice 1 --limit 3
+```
+
+Actually submit the chosen result to qBittorrent:
+```bash
+python3 /home/santos-family/.openclaw/workspace/movie_agent_add.py "Beethoven 1992" --choice 1 --limit 3 --approve
 ```
 
 ## Current behavior
@@ -17,6 +30,7 @@ python3 /home/santos-family/.openclaw/workspace/movie_agent_search.py "Beethoven
 - collects results
 - ranks results by title/year, resolution, codec, size, seed health, and preference rules
 - prints top candidates in a human-readable format
+- supports explicit choose-and-submit workflow with a safe preview default
 
 ## Notes
 - Uses the real local config file: `movie-agent.config.toml`
