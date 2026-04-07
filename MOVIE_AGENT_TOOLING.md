@@ -3,6 +3,7 @@
 ## Current local tools
 - `movie_agent_search.py`
 - `movie_agent_add.py`
+- `movie_agent_postprocess.py`
 - `movie_agent_lib.py`
 
 ## Purpose
@@ -24,6 +25,17 @@ Actually submit the chosen result to qBittorrent:
 python3 /home/santos-family/.openclaw/workspace/movie_agent_add.py "Beethoven 1992" --choice 1 --limit 3 --approve
 ```
 
+## Postprocess example
+Preview scan + rename logic without moving:
+```bash
+python3 /home/santos-family/.openclaw/workspace/movie_agent_postprocess.py --path "/path/to/completed/download" --allow-stale-db
+```
+
+Actually move after scan + normalization:
+```bash
+python3 /home/santos-family/.openclaw/workspace/movie_agent_postprocess.py --path "/path/to/completed/download" --allow-stale-db --move
+```
+
 ## Current behavior
 - logs into qBittorrent locally
 - starts a search job
@@ -31,6 +43,7 @@ python3 /home/santos-family/.openclaw/workspace/movie_agent_add.py "Beethoven 19
 - ranks results by title/year, resolution, codec, size, seed health, and preference rules
 - prints top candidates in a human-readable format
 - supports explicit choose-and-submit workflow with a safe preview default
+- supports scan + rename + safe cross-filesystem move workflow with preview mode
 
 ## Notes
 - Uses the real local config file: `movie-agent.config.toml`
